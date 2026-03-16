@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CalPack Supply Co. — Wholesale Disposables for California</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0f2040;
+      --blue: #1a4480;
+      --accent: #2563eb;
+      --light-blue: #dbeafe;
+      --text: #1e293b;
+      --muted: #64748b;
+      --white: #ffffff;
+      --off-white: #f8fafc;
+      --border: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(15,32,64,0.97);
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+    }
+    .nav-logo {
+      font-size: 1.25rem; font-weight: 800; color: var(--white); letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: #60a5fa; }
+    .nav-cta {
+      background: var(--accent); color: white;
+      padding: 8px 20px; border-radius: 6px;
+      text-decoration: none; font-size: 0.875rem; font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #1d4ed8; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f2040 0%, #1a3a6b 50%, #0f2040 100%);
+      display: flex; align-items: center;
+      padding: 100px 5% 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(37,99,235,0.15) 0%, transparent 60%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 640px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(37,99,235,0.2); border: 1px solid rgba(96,165,250,0.3);
+      color: #93c5fd; padding: 6px 14px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero-badge::before { content: '●'; font-size: 0.5rem; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800; color: white;
+      line-height: 1.15; letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+    h1 span { color: #60a5fa; }
+    .hero-sub {
+      font-size: 1.1rem; color: #94a3b8; margin-bottom: 36px; max-width: 500px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: white;
+      padding: 14px 28px; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 0.95rem;
+      transition: all 0.2s; display: inline-block;
+    }
+    .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent; color: white;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      padding: 14px 28px; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 0.95rem;
+      transition: all 0.2s; display: inline-block;
+    }
+    .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.05); }
+    .hero-stats {
+      position: relative; z-index: 1;
+      display: flex; gap: 32px; margin-top: 56px; flex-wrap: wrap;
+    }
+    .stat { border-left: 3px solid #2563eb; padding-left: 16px; }
+    .stat-num { font-size: 1.7rem; font-weight: 800; color: white; line-height: 1; }
+    .stat-label { font-size: 0.8rem; color: #94a3b8; margin-top: 4px; }
+
+    /* SECTION SHARED */
+    section { padding: 80px 5%; }
+    .section-tag {
+      display: inline-block;
+      color: var(--accent); font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;
+    }
+    h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 800; color: var(--navy);
+      letter-spacing: -0.5px; margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1.05rem; color: var(--muted);
+      max-width: 560px; margin-bottom: 48px;
+    }
+
+    /* VALUE PROPS */
+    .value-section { background: var(--off-white); }
+    .value-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .value-card {
+      background: white; border-radius: 12px;
+      padding: 28px; border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .value-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+    .value-icon {
+      width: 48px; height: 48px; border-radius: 10px;
+      background: var(--light-blue); display: flex; align-items: center;
+      justify-content: center; font-size: 1.4rem; margin-bottom: 16px;
+    }
+    .value-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .value-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+    /* PRODUCTS */
+    .products-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 24px 20px; text-align: center;
+      transition: all 0.2s; background: white;
+    }
+    .product-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(37,99,235,0.1); }
+    .product-emoji { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+    .product-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .product-card p { font-size: 0.82rem; color: var(--muted); }
+    .product-tag {
+      display: inline-block; margin-top: 10px;
+      background: var(--light-blue); color: var(--accent);
+      font-size: 0.72rem; font-weight: 600; padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    /* HOW IT WORKS */
+    .how-section { background: var(--off-white); }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; }
+    .step { text-align: center; }
+    .step-num {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--accent); color: white;
+      font-size: 1.2rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .step h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .step p { font-size: 0.88rem; color: var(--muted); }
+
+    /* WHO WE SERVE */
+    .customers-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .customer-chip {
+      background: white; border: 1px solid var(--border); border-radius: 10px;
+      padding: 20px; display: flex; align-items: center; gap: 12px;
+      transition: all 0.2s;
+    }
+    .customer-chip:hover { border-color: var(--accent); }
+    .customer-chip .icon { font-size: 1.6rem; }
+    .customer-chip span { font-size: 0.92rem; font-weight: 600; color: var(--navy); }
+
+    /* TERRITORY */
+    .territory-section { background: var(--navy); color: white; }
+    .territory-section h2 { color: white; }
+    .territory-section .section-sub { color: #94a3b8; }
+    .territory-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px; margin-top: 12px;
+    }
+    .territory-card {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px; padding: 20px;
+    }
+    .territory-card .phase {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: #60a5fa; margin-bottom: 8px;
+    }
+    .territory-card h3 { color: white; font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .territory-card p { color: #94a3b8; font-size: 0.85rem; }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--accent) 0%, #1d4ed8 100%);
+      text-align: center; padding: 80px 5%;
+    }
+    .cta-section h2 { color: white; margin-bottom: 12px; }
+    .cta-section p { color: rgba(255,255,255,0.85); margin-bottom: 32px; font-size: 1.05rem; }
+    .cta-section .btn-white {
+      background: white; color: var(--accent);
+      padding: 15px 36px; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 1rem;
+      display: inline-block; transition: all 0.2s;
+    }
+    .cta-section .btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+
+    /* CONTACT */
+    .contact-section { background: var(--off-white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-info h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 16px; color: var(--navy); }
+    .contact-info p { color: var(--muted); margin-bottom: 20px; }
+    .contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .contact-item .ci-icon { font-size: 1.1rem; }
+    .contact-item span { font-size: 0.9rem; color: var(--text); }
+    form { display: flex; flex-direction: column; gap: 14px; }
+    input, textarea, select {
+      padding: 12px 16px; border-radius: 8px;
+      border: 1.5px solid var(--border); font-family: inherit;
+      font-size: 0.9rem; color: var(--text);
+      background: white; transition: border 0.2s; outline: none;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--accent); }
+    textarea { resize: vertical; min-height: 100px; }
+    .form-submit {
+      background: var(--accent); color: white;
+      border: none; cursor: pointer; padding: 13px;
+      border-radius: 8px; font-size: 0.95rem; font-weight: 700;
+      font-family: inherit; transition: background 0.2s;
+    }
+    .form-submit:hover { background: #1d4ed8; }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy); color: #64748b;
+      padding: 28px 5%; text-align: center; font-size: 0.85rem;
+    }
+    footer span { color: #94a3b8; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      nav { padding: 0 4%; }
+      section { padding: 60px 4%; }
+      .hero { padding: 90px 4% 50px; }
+      .hero-stats { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Cal<span>Pack</span> Supply</div>
+  <a href="#contact" class="nav-cta">Get a Quote →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-content">
+      <div class="hero-badge">California-Based Wholesale Supplier</div>
+      <h1>Lower Cost.<br/>Better Supplies.<br/><span>Built for CA.</span></h1>
+      <p class="hero-sub">
+        Paper cups, plastic cups, straws, and utensils — supplied at factory-direct pricing with custom branding available. Serving coffee shops, gas stations, and food businesses across California.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Request Pricing</a>
+        <a href="#products" class="btn-secondary">View Products</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">$500K+</div>
+        <div class="stat-label">Inventory Ready to Ship</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10–20%</div>
+        <div class="stat-label">Below Market Pricing</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Custom</div>
+        <div class="stat-label">Branding Available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE PROPS -->
+<section class="value-section">
+  <div class="section-tag">Why CalPack</div>
+  <h2>Your Supplies. Smarter.</h2>
+  <p class="section-sub">We cut out the middlemen. Direct supplier access means you pay less for the same quality — every order, every time.</p>
+  <div class="value-grid">
+    <div class="value-card">
+      <div class="value-icon">💰</div>
+      <h3>Lowest Cost in CA</h3>
+      <p>Direct factory pricing means 10–20% below what you're paying today. No hidden fees, no surprises.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🎨</div>
+      <h3>Custom Branding</h3>
+      <p>Your logo on cups, lids, and packaging — at the same low price point. Minimum orders lower than you'd expect.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">📦</div>
+      <h3>Ready Inventory</h3>
+      <p>$500K+ in inventory already warehoused in California. No long lead times. Orders ship fast.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🤝</div>
+      <h3>Local & Reliable</h3>
+      <p>California-based team that knows your market. Personal service, not a 1-800 number.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">📈</div>
+      <h3>Flexible Minimums</h3>
+      <p>Start with what you need. We work with businesses of all sizes — from single locations to regional chains.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">♻️</div>
+      <h3>Eco Options Available</h3>
+      <p>Paper straws, compostable utensils, and sustainable alternatives in stock to meet California standards.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-tag">Products</div>
+  <h2>Everything You Need. One Supplier.</h2>
+  <p class="section-sub">All the disposables your business runs on — competitively priced, consistently in stock.</p>
+  <div class="products-grid">
+    <div class="product-card">
+      <span class="product-emoji">☕</span>
+      <h3>Paper Hot Cups</h3>
+      <p>8oz – 20oz, all sizes. Hot-beverage safe, double-wall available.</p>
+      <span class="product-tag">Custom Branding</span>
+    </div>
+    <div class="product-card">
+      <span class="product-emoji">🥤</span>
+      <h3>Plastic Cold Cups</h3>
+      <p>16oz – 32oz. Crystal-clear, perfect for iced beverages and boba.</p>
+      <span class="product-tag">Custom Branding</span>
+    </div>
+    <div class="product-card">
+      <span class="product-emoji">🪄</span>
+      <h3>Lids</h3>
+      <p>Hot and cold cup lids. Secure fit, sip-through and flat options.</p>
+      <span class="product-tag">In Stock</span>
+    </div>
+    <div class="product-card">
+      <span class="product-emoji">🥤</span>
+      <h3>Straws</h3>
+      <p>Plastic, paper, and compostable. Standard and jumbo sizes.</p>
+      <span class="product-tag">Eco Options</span>
+    </div>
+    <div class="product-card">
+      <span class="product-emoji">🍴</span>
+      <h3>Utensils</h3>
+      <p>Forks, knives, spoons. Plastic and compostable in bulk packs.</p>
+      <span class="product-tag">Eco Options</span>
+    </div>
+    <div class="product-card">
+      <span class="product-emoji">🛒</span>
+      <h3>Drink Trays</h3>
+      <p>2-cup and 4-cup carriers for delivery and takeout service.</p>
+      <span class="product-tag">In Stock</span>
+    </div>
+    <div class="product-card">
+      <span class="product-emoji">🧻</span>
+      <h3>Napkins</h3>
+      <p>Paper napkins in bulk. Single-ply and multi-ply options.</p>
+      <span class="product-tag">In Stock</span>
+    </div>
+    <div class="product-card">
+      <span class="product-emoji">✨</span>
+      <h3>Custom Branded</h3>
+      <p>Your logo on any product. Low MOQ. Fast turnaround.</p>
+      <span class="product-tag">Premium</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="section-tag">Process</div>
+  <h2>How It Works</h2>
+  <p class="section-sub">Getting started takes less than 10 minutes.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Request a Quote</h3>
+      <p>Tell us what you need. We'll send a custom pricing sheet within 24 hours.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Review & Compare</h3>
+      <p>Compare our pricing to your current vendor. Most customers save 10–20%.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Place Your Order</h3>
+      <p>Confirm quantities. We handle the rest — fulfillment, logistics, delivery.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h3>Delivered Fast</h3>
+      <p>Inventory is warehoused in California. Expect fast, reliable delivery.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section>
+  <div class="section-tag">Customers</div>
+  <h2>Who We Serve</h2>
+  <p class="section-sub">Any business that runs on disposable supplies. If you buy cups, straws, or utensils in volume, we can save you money.</p>
+  <div class="customers-grid">
+    <div class="customer-chip"><span class="icon">☕</span><span>Coffee Shops & Cafes</span></div>
+    <div class="customer-chip"><span class="icon">🧋</span><span>Boba & Tea Shops</span></div>
+    <div class="customer-chip"><span class="icon">⛽</span><span>Gas Stations</span></div>
+    <div class="customer-chip"><span class="icon">🍔</span><span>Quick-Service Restaurants</span></div>
+    <div class="customer-chip"><span class="icon">🚚</span><span>Food Trucks</span></div>
+    <div class="customer-chip"><span class="icon">🎉</span><span>Catering Companies</span></div>
+    <div class="customer-chip"><span class="icon">🏪</span><span>Convenience Stores</span></div>
+    <div class="customer-chip"><span class="icon">🏨</span><span>Hotels & Hospitality</span></div>
+  </div>
+</section>
+
+<!-- TERRITORY -->
+<section class="territory-section">
+  <div class="section-tag" style="color:#60a5fa;">Service Area</div>
+  <h2>Starting Local. Scaling Fast.</h2>
+  <p class="section-sub">We're beginning in the East Bay and expanding rapidly across California and beyond.</p>
+  <div class="territory-grid">
+    <div class="territory-card">
+      <div class="phase">Phase 1 — Now</div>
+      <h3>East Bay, CA</h3>
+      <p>Orinda, Lafayette, Walnut Creek, Moraga, El Sobrante, and surrounding areas.</p>
+    </div>
+    <div class="territory-card">
+      <div class="phase">Phase 2 — Q2 2026</div>
+      <h3>All of California</h3>
+      <p>Northern California and Southern California — full statewide coverage.</p>
+    </div>
+    <div class="territory-card">
+      <div class="phase">Phase 3 — 2027</div>
+      <h3>National</h3>
+      <p>Expanding beyond California to serve businesses across the United States.</p>
+    </div>
+    <div class="territory-card">
+      <div class="phase">Phase 4 — Future</div>
+      <h3>International</h3>
+      <p>International distribution as volume and demand grows.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-section">
+  <h2>Ready to Cut Your Supply Costs?</h2>
+  <p>Request a free quote. No commitment. Most customers save 10–20% from day one.</p>
+  <a href="#contact" class="btn-white">Get My Free Quote →</a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-tag">Contact</div>
+  <h2>Get a Quote</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Let's talk supplies.</h3>
+      <p>Tell us what you use and we'll put together a custom pricing sheet. Response within 24 hours.</p>
+      <div class="contact-item">
+        <span class="ci-icon">📍</span>
+        <span>East Bay, California (serving all of CA)</span>
+      </div>
+      <div class="contact-item">
+        <span class="ci-icon">📦</span>
+        <span>$500K+ inventory ready to ship</span>
+      </div>
+      <div class="contact-item">
+        <span class="ci-icon">⚡</span>
+        <span>Quote within 24 hours</span>
+      </div>
+      <div class="contact-item">
+        <span class="ci-icon">✅</span>
+        <span>No minimums to get started</span>
+      </div>
+    </div>
+    <form onsubmit="handleSubmit(event)">
+      <input type="text" placeholder="Your Name *" required />
+      <input type="text" placeholder="Business Name *" required />
+      <select required>
+        <option value="" disabled selected>Business Type</option>
+        <option>Coffee Shop / Cafe</option>
+        <option>Boba / Tea Shop</option>
+        <option>Gas Station</option>
+        <option>Restaurant / QSR</option>
+        <option>Food Truck</option>
+        <option>Catering Company</option>
+        <option>Other</option>
+      </select>
+      <input type="email" placeholder="Email Address *" required />
+      <input type="tel" placeholder="Phone Number" />
+      <textarea placeholder="What products do you need? (e.g. 12oz hot cups, paper straws, utensils) — and roughly how many per month?"></textarea>
+      <button type="submit" class="form-submit">Send Request →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>CalPack Supply Co.</span> · California Wholesale Disposables · East Bay, CA<br/>
+  <span style="font-size:0.8rem;margin-top:6px;display:block;">© 2026 CalPack Supply Co. LLC · All rights reserved.</span>
+</footer>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.querySelector(a.getAttribute('href'));
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = '✅ Request Sent!';
+    btn.style.background = '#16a34a';
+    btn.disabled = true;
+  }
+</script>
+
+</body>
+</html>
