@@ -828,6 +828,90 @@
     .faq-a-inner a { color: var(--gold); font-weight: 600; }
     .faq-item.open .faq-a { max-height: 400px; }
 
+  
+    /* ── SERVICE AREA ── */
+    .area-section {
+      background: var(--navy-mid);
+      padding: 80px 6%;
+    }
+    .area-section .section-label { color: var(--gold-lt); }
+    .area-section .section-title { color: var(--white); }
+    .area-section .section-title em { color: var(--gold-lt); }
+    .area-section .section-sub { color: rgba(255,255,255,.5); }
+    .area-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 48px;
+      align-items: start;
+    }
+    @media (max-width: 700px) { .area-layout { grid-template-columns: 1fr; } }
+    .area-cities-wrap h4 {
+      color: var(--gold-lt);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .area-cities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .city-pill {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.8);
+      font-size: .82rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+      transition: all .2s;
+    }
+    .city-pill:hover, .city-pill.primary {
+      background: rgba(201,146,42,.2);
+      border-color: var(--gold);
+      color: var(--gold-lt);
+    }
+    .area-phases { display: flex; flex-direction: column; gap: 16px; }
+    .area-phase {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .area-phase-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(201,146,42,.15);
+      color: var(--gold-lt);
+      font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .area-phase-label {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      margin-bottom: 3px;
+    }
+    .area-phase-title {
+      font-size: .92rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+    .area-phase-desc {
+      font-size: .82rem;
+      color: rgba(255,255,255,.45);
+    }
+
   </style>
 </head>
 <body>
