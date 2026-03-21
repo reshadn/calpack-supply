@@ -613,6 +613,71 @@
     }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
+  
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--off-white);
+      padding: 80px 6%;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .tcard {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      padding: 28px;
+      position: relative;
+      transition: box-shadow .2s;
+    }
+    .tcard:hover { box-shadow: var(--shadow-md); }
+    .tcard-stars {
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+    .tcard-quote {
+      font-size: .95rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .tcard-quote::before { content: '\201C'; }
+    .tcard-quote::after  { content: '\201D'; }
+    .tcard-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .tcard-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--navy-mid);
+      color: var(--gold-lt);
+      font-weight: 800;
+      font-size: .95rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .tcard-name { font-weight: 700; font-size: .9rem; color: var(--navy); }
+    .tcard-biz  { font-size: .8rem; color: var(--gray-600); }
+    .tcard-badge {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: var(--gold-pale);
+      color: var(--gold);
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 100px;
+      border: 1px solid rgba(201,146,42,0.2);
+    }
+
   </style>
 </head>
 <body>
@@ -731,6 +796,54 @@
       <div class="why-icon">🤝</div>
       <div class="why-title">Real Relationship</div>
       <p class="why-desc">You get a direct line to Reshad — not a call center or a ticket queue. We know your business and we show up when it matters.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-head">
+    <div class="section-label">Customer Stories</div>
+    <h2 class="section-title">What our customers say.</h2>
+    <p class="section-sub">Independent operators across the East Bay switched to Zay Supply — here's what they found.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="tcard">
+      <div class="tcard-badge">☕ Coffee Shop</div>
+      <div class="tcard-stars">★★★★★</div>
+      <p class="tcard-quote">Switched from our old distributor 4 months ago and haven't looked back. We're saving around 15% on cups and lids alone, and Reshad actually answers the phone when we run low.</p>
+      <div class="tcard-author">
+        <div class="tcard-avatar">MK</div>
+        <div>
+          <div class="tcard-name">Maria K.</div>
+          <div class="tcard-biz">Morning Ritual Café · Walnut Creek, CA</div>
+        </div>
+      </div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-badge">🧋 Boba Shop</div>
+      <div class="tcard-stars">★★★★★</div>
+      <p class="tcard-quote">The boba cups and fat straws are exactly what we needed — and the custom logo print turned out better than expected. The low minimum order made it possible for a small shop like us.</p>
+      <div class="tcard-author">
+        <div class="tcard-avatar">TN</div>
+        <div>
+          <div class="tcard-name">Tiffany N.</div>
+          <div class="tcard-biz">Boba Bliss · Lafayette, CA</div>
+        </div>
+      </div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-badge">⛽ Gas Station</div>
+      <div class="tcard-stars">★★★★★</div>
+      <p class="tcard-quote">We go through thousands of cups a month. Zay Supply beat our national vendor's price by over 12% and the delivery is way faster since they're local. Simple decision.</p>
+      <div class="tcard-author">
+        <div class="tcard-avatar">AJ</div>
+        <div>
+          <div class="tcard-name">Amir J.</div>
+          <div class="tcard-biz">QuickStop Market · Orinda, CA</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
