@@ -762,6 +762,72 @@
       .pricing-table th, .pricing-table td { padding: 12px 10px; font-size: .8rem; }
     }
 
+  
+    /* ── FAQ ── */
+    .faq-section {
+      background: var(--off-white);
+      padding: 80px 6%;
+    }
+    .faq-list {
+      max-width: 760px;
+      margin: 48px auto 0;
+    }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: box-shadow .2s;
+    }
+    .faq-item.open { box-shadow: var(--shadow-md); }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      text-align: left;
+      font-family: inherit;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--navy);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      line-height: 1.4;
+    }
+    .faq-q:hover { color: var(--gold); }
+    .faq-chevron {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--gray-100);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: .7rem;
+      transition: transform .25s, background .2s;
+    }
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+      background: var(--gold-pale);
+      color: var(--gold);
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease, padding .3s ease;
+      padding: 0 24px;
+    }
+    .faq-a-inner {
+      padding-bottom: 20px;
+      font-size: .9rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+    }
+    .faq-a-inner a { color: var(--gold); font-weight: 600; }
+    .faq-item.open .faq-a { max-height: 400px; }
+
   </style>
 </head>
 <body>
@@ -1163,6 +1229,99 @@
   </div>
 </section>
 
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-head">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Common questions,<br><em>straight answers.</em></h2>
+    <p class="section-sub">Everything you'd want to know before switching suppliers.</p>
+  </div>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What's the minimum order quantity?
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">
+        There is no hard minimum. You can start with a single case if that's what you need. We work with businesses at every stage — from a single-location cafe just starting out to multi-unit operators placing regular bulk orders. Scale up when you're ready.
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How fast is delivery?
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">
+        We hold inventory in California, so East Bay orders typically arrive within 1–3 business days. We move fast, especially for customers who are running low — just give us a heads up and we'll prioritize your order.
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can I see samples before committing?
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">
+        Yes — and this month, East Bay businesses can request a free sample pack. Just mention it when you <a href="#contact">fill out the quote form</a>. We'll send you physical samples of cups, lids, and straws so you can see and feel the quality before you order.
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How does custom branding work?
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">
+        We handle the whole process. Send us your logo (or even a rough idea) and we'll work with our print partners to produce a mockup. Minimums are much lower than typical print runs — accessible for a single-location business. Production takes 10–14 business days from artwork approval.
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do you carry eco-friendly / compostable options?
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">
+        Yes. We stock paper straws, compostable utensils, and PLA-lined hot cups to help California businesses meet local sustainability requirements. Just let us know you need eco options when you request a quote.
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do I get a quote? How long does it take?
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">
+        Fill out the form below or text/call Reshad directly. We respond to every quote request the same day — usually within a few hours. Just tell us what products you use and your rough monthly volume and we'll send you a pricing sheet to compare against your current supplier.
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do you serve businesses outside the East Bay?
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">
+        We're based in the East Bay and that's our primary focus right now — Orinda, Lafayette, Walnut Creek, Moraga, El Sobrante, and surrounding areas. That said, if you're elsewhere in the Bay Area or California, reach out. We're expanding and happy to talk.
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What payment methods do you accept?
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">
+        We accept ACH bank transfer, check, and major credit cards. Net-15 terms available for established customers. We keep it simple — no complicated procurement portals or corporate red tape.
+      </div></div>
+    </div>
+
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="section-head">
@@ -1256,5 +1415,15 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    // Open clicked (unless it was already open)
+    if (!isOpen) item.classList.add('open');
+  }
+
+</script></body>
 </html>
