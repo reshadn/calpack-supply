@@ -584,9 +584,45 @@
       .frow { grid-template-columns: 1fr; }
       .trust { gap: 1.25rem; }
     }
+  
+    /* ── ANNOUNCEMENT BANNER ── */
+    .announce-bar {
+      background: linear-gradient(90deg, var(--gold) 0%, #b8841e 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 10px 5%;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .3px;
+      position: relative;
+      z-index: 201;
+    }
+    .announce-bar a {
+      color: var(--white);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .announce-bar .announce-dot {
+      display: inline-block;
+      width: 7px; height: 7px;
+      background: white;
+      border-radius: 50%;
+      margin-right: 8px;
+      animation: pulse 2s infinite;
+      vertical-align: middle;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
   </style>
 </head>
 <body>
+
+<!-- NAV -->
+<!-- ANNOUNCEMENT BANNER -->
+<div class="announce-bar">
+  <span class="announce-dot"></span>
+  🎁 <strong>Free sample pack</strong> for East Bay businesses this month — mention it when you <a href="#contact">request a quote</a>.
+</div>
 
 <!-- NAV -->
 <nav>
