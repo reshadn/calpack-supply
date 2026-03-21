@@ -912,6 +912,83 @@
       color: rgba(255,255,255,.45);
     }
 
+  
+    /* ── FOOTER (enhanced) ── */
+    footer {
+      background: var(--navy);
+      padding: 48px 6% 28px;
+    }
+    .footer-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      margin-bottom: 24px;
+    }
+    .footer-brand .footer-tagline {
+      font-size: .82rem;
+      color: rgba(255,255,255,.35);
+      margin-top: 8px;
+      max-width: 220px;
+    }
+    .footer-cols {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .footer-col h5 {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 12px;
+    }
+    .footer-col a, .footer-col span {
+      display: block;
+      font-size: .84rem;
+      color: rgba(255,255,255,.6);
+      text-decoration: none;
+      margin-bottom: 7px;
+      transition: color .15s;
+    }
+    .footer-col a:hover { color: var(--gold-lt); }
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .social-btn {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.6);
+      text-decoration: none;
+      font-size: .9rem;
+      transition: all .2s;
+    }
+    .social-btn:hover {
+      background: rgba(201,146,42,.2);
+      border-color: var(--gold);
+      color: var(--gold-lt);
+    }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-seo {
+      font-size: .75rem;
+      color: rgba(255,255,255,.2);
+    }
+
   </style>
 </head>
 <body>
@@ -1490,12 +1567,40 @@
 
 <!-- FOOTER -->
 <footer>
-  <a href="/" class="footer-logo">Zay <em>Supply</em> Co.</a>
-  <div class="footer-copy">© 2026 Zay Supply Co. · East Bay, California</div>
-  <div class="footer-links">
-    <a href="/cdn-cgi/l/email-protection#3b495e48535a5f7b415a42484e4b4b574215585456"><span class="__cf_email__" data-cfemail="9be9fee8f3faffdbe1fae2e8eeebebf7e2b5f8f4f6">[email&#160;protected]</span></a>
-    <a href="tel:9252555484">(925) 255-5484</a>
-    <a href="/card">Business Card</a>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Zay <em>Supply</em> Co.</a>
+      <p class="footer-tagline">Local wholesale disposables for East Bay food businesses.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="#products">Products</a>
+        <a href="#serve">Who We Serve</a>
+        <a href="#branding">Custom Branding</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Get a Quote</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="mailto:reshad@zaysupply.com">reshad@zaysupply.com</a>
+        <a href="tel:9252555484">(925) 255-5484</a>
+        <span>East Bay, California</span>
+        <a href="/card">Business Card</a>
+      </div>
+      <div class="footer-col">
+        <h5>Follow</h5>
+        <div class="footer-social">
+          <a href="https://instagram.com/zaysupply" target="_blank" rel="noopener" class="social-btn" title="Instagram">📸</a>
+          <a href="https://www.google.com/maps/search/Zay+Supply+East+Bay+CA" target="_blank" rel="noopener" class="social-btn" title="Google Business">🗺️</a>
+          <a href="https://linkedin.com/company/zaysupply" target="_blank" rel="noopener" class="social-btn" title="LinkedIn">💼</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Zay Supply Co. · East Bay, California</div>
+    <div class="footer-seo">Serving Walnut Creek · Lafayette · Orinda · Moraga · El Sobrante · Concord · Danville · San Ramon · Berkeley · Oakland</div>
   </div>
 </footer>
 
